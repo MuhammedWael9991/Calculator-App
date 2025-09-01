@@ -143,7 +143,6 @@
                 app:layout_constraintEnd_toStartOf="@id/button_8"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                android:onClick=""
                 />
 
             <TextView
