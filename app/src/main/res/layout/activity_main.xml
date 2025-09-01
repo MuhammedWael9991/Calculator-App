@@ -1,0 +1,479 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/results_section"
+        android:layout_width="match_parent"
+        android:layout_height="340dp"
+        android:background="@drawable/result_section"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!--last operation test-->
+
+        <TextView
+            android:id="@+id/last_operation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="@font/doppio_one_regular"
+            android:text="120+50"
+            android:textColor="@color/brawn_hint"
+            android:textDirection="rtl"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/result_txt"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!--result-->
+        <TextView
+            android:id="@+id/result_txt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="24dp"
+            android:fontFamily="@font/doppio_one_regular"
+            android:text="120+50"
+            android:textColor="@color/brawn"
+            android:textDirection="rtl"
+            android:textSize="36sp"
+            app:layout_constraintBottom_toTopOf="@+id/view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="32dp"
+            android:layout_height="4dp"
+            android:layout_marginBottom="4dp"
+            android:background="@drawable/rounded_rectangel"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/buttons_section"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/results_section">
+
+        <!--first row-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/first_row"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/button_ac"
+                android:layout_width="76dp"
+                android:layout_height="76dp"
+                android:background="@drawable/round_button"
+                android:gravity="center"
+                android:text="AC"
+                android:textSize="22sp"
+                android:textColor="@color/brawn"
+                android:fontFamily="@font/doppio_one_regular"
+                app:layout_constraintEnd_toStartOf="@id/button_arrow"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:clickable="true"
+                android:focusable="true"
+                />
+
+            <TextView
+                android:id="@+id/button_arrow"
+                android:layout_width="76dp"
+                android:layout_height="76dp"
+                android:background="@drawable/round_button"
+                android:gravity="center"
+                android:text="-"
+                android:textSize="22sp"
+                android:textColor="@color/brawn"
+                android:fontFamily="@font/doppio_one_regular"
+                app:layout_constraintEnd_toStartOf="@id/button_mod"
+                app:layout_constraintStart_toEndOf="@+id/button_ac"
+                app:layout_constraintTop_toTopOf="parent"
+                android:clickable="true"
+                android:focusable="true"
+                />
+
+            <TextView
+                android:id="@+id/button_mod"
+                android:layout_width="76dp"
+                android:layout_height="76dp"
+                android:background="@drawable/operation_button"
+                android:gravity="center"
+                android:text="%"
+                android:textSize="22sp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/doppio_one_regular"
+                app:layout_constraintEnd_toStartOf="@id/button_divide"
+                app:layout_constraintStart_toEndOf="@+id/button_arrow"
+                app:layout_constraintTop_toTopOf="parent"
+                android:clickable="true"
+                android:focusable="true"
+                />
+
+            <TextView
+                android:id="@+id/button_divide"
+                android:layout_width="76dp"
+                android:layout_height="76dp"
+                android:background="@drawable/operation_button"
+                android:gravity="center"
+                android:text="/"
+                android:textSize="22sp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/doppio_one_regular"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/button_mod"
+                app:layout_constraintTop_toTopOf="parent"
+                android:clickable="true"
+                android:focusable="true"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!--second row-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/second_row"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/first_row"
+            >
+
+            <TextView
+                android:id="@+id/button_7"
+                android:layout_width="76dp"
+                android:layout_height="76dp"
+                android:background="@drawable/round_button"
+                android:gravity="center"
+                android:text="7"
+                android:textSize="22sp"
+                android:textColor="@color/brawn"
+                android:fontFamily="@font/doppio_one_regular"
+                app:layout_constraintEnd_toStartOf="@id/button_8"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:clickable="true"
+                android:focusable="true"
+                />
+
+            <TextView
+                android:id="@+id/button_8"
+                android:layout_width="76dp"
+                android:layout_height="76dp"
+                android:background="@drawable/round_button"
+                android:gravity="center"
+                android:text="8"
+                android:textSize="22sp"
+                android:textColor="@color/brawn"
+                android:fontFamily="@font/doppio_one_regular"
+                app:layout_constraintEnd_toStartOf="@id/button_9"
+                app:layout_constraintStart_toEndOf="@+id/button_7"
+                app:layout_constraintTop_toTopOf="parent"
+                android:clickable="true"
+                android:focusable="true"
+                />
+
+            <TextView
+                android:id="@+id/button_9"
+                android:layout_width="76dp"
+                android:layout_height="76dp"
+                android:background="@drawable/round_button"
+                android:gravity="center"
+                android:text="9"
+                android:textSize="22sp"
+                android:textColor="@color/brawn"
+                android:fontFamily="@font/doppio_one_regular"
+                app:layout_constraintEnd_toStartOf="@id/button_multiply"
+                app:layout_constraintStart_toEndOf="@+id/button_8"
+                app:layout_constraintTop_toTopOf="parent"
+                android:clickable="true"
+                android:focusable="true"
+                />
+
+            <TextView
+                android:id="@+id/button_multiply"
+                android:layout_width="76dp"
+                android:layout_height="76dp"
+                android:background="@drawable/operation_button"
+                android:gravity="center"
+                android:text="x"
+                android:textSize="22sp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/doppio_one_regular"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/button_9"
+                app:layout_constraintTop_toTopOf="parent"
+                android:clickable="true"
+                android:focusable="true"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!--third row-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/third_row"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/second_row"
+            >
+
+            <TextView
+                android:id="@+id/button_4"
+                android:layout_width="76dp"
+                android:layout_height="76dp"
+                android:background="@drawable/round_button"
+                android:gravity="center"
+                android:text="4"
+                android:textSize="22sp"
+                android:textColor="@color/brawn"
+                android:fontFamily="@font/doppio_one_regular"
+                app:layout_constraintEnd_toStartOf="@id/button_5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:clickable="true"
+                android:focusable="true"
+                />
+
+            <TextView
+                android:id="@+id/button_5"
+                android:layout_width="76dp"
+                android:layout_height="76dp"
+                android:background="@drawable/round_button"
+                android:gravity="center"
+                android:text="5"
+                android:textSize="22sp"
+                android:textColor="@color/brawn"
+                android:fontFamily="@font/doppio_one_regular"
+                app:layout_constraintEnd_toStartOf="@id/button_6"
+                app:layout_constraintStart_toEndOf="@+id/button_4"
+                app:layout_constraintTop_toTopOf="parent"
+                android:clickable="true"
+                android:focusable="true"
+                />
+
+            <TextView
+                android:id="@+id/button_6"
+                android:layout_width="76dp"
+                android:layout_height="76dp"
+                android:background="@drawable/round_button"
+                android:gravity="center"
+                android:text="6"
+                android:textSize="22sp"
+                android:textColor="@color/brawn"
+                android:fontFamily="@font/doppio_one_regular"
+                app:layout_constraintEnd_toStartOf="@id/button_plus"
+                app:layout_constraintStart_toEndOf="@+id/button_5"
+                app:layout_constraintTop_toTopOf="parent"
+                android:clickable="true"
+                android:focusable="true"
+                />
+
+            <TextView
+                android:id="@+id/button_plus"
+                android:layout_width="76dp"
+                android:layout_height="76dp"
+                android:background="@drawable/operation_button"
+                android:gravity="center"
+                android:text="+"
+                android:textSize="22sp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/doppio_one_regular"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/button_6"
+                app:layout_constraintTop_toTopOf="parent"
+                android:clickable="true"
+                android:focusable="true"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!--fourth row-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/fourth_row"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/third_row"
+            >
+
+            <TextView
+                android:id="@+id/button_1"
+                android:layout_width="76dp"
+                android:layout_height="76dp"
+                android:background="@drawable/round_button"
+                android:gravity="center"
+                android:text="1"
+                android:textSize="22sp"
+                android:textColor="@color/brawn"
+                android:fontFamily="@font/doppio_one_regular"
+                app:layout_constraintEnd_toStartOf="@id/button_2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:clickable="true"
+                android:focusable="true"
+                />
+
+            <TextView
+                android:id="@+id/button_2"
+                android:layout_width="76dp"
+                android:layout_height="76dp"
+                android:background="@drawable/round_button"
+                android:gravity="center"
+                android:text="2"
+                android:textSize="22sp"
+                android:textColor="@color/brawn"
+                android:fontFamily="@font/doppio_one_regular"
+                app:layout_constraintEnd_toStartOf="@id/button_3"
+                app:layout_constraintStart_toEndOf="@+id/button_1"
+                app:layout_constraintTop_toTopOf="parent"
+                android:clickable="true"
+                android:focusable="true"
+                />
+
+            <TextView
+                android:id="@+id/button_3"
+                android:layout_width="76dp"
+                android:layout_height="76dp"
+                android:background="@drawable/round_button"
+                android:gravity="center"
+                android:text="3"
+                android:textSize="22sp"
+                android:textColor="@color/brawn"
+                android:fontFamily="@font/doppio_one_regular"
+                app:layout_constraintEnd_toStartOf="@id/button_minus"
+                app:layout_constraintStart_toEndOf="@+id/button_2"
+                app:layout_constraintTop_toTopOf="parent"
+                android:clickable="true"
+                android:focusable="true"
+                />
+
+            <TextView
+                android:id="@+id/button_minus"
+                android:layout_width="76dp"
+                android:layout_height="76dp"
+                android:background="@drawable/operation_button"
+                android:gravity="center"
+                android:text="-"
+                android:textSize="22sp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/doppio_one_regular"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/button_3"
+                app:layout_constraintTop_toTopOf="parent"
+                android:clickable="true"
+                android:focusable="true"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!--fifth row-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/fifth_row"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/fourth_row"
+            >
+
+            <TextView
+                android:id="@+id/button_plus_minus"
+                android:layout_width="76dp"
+                android:layout_height="76dp"
+                android:background="@drawable/round_button"
+                android:gravity="center"
+                android:text="±"
+                android:textSize="22sp"
+                android:textColor="@color/brawn"
+                android:fontFamily="@font/doppio_one_regular"
+                app:layout_constraintEnd_toStartOf="@id/button_zero"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:clickable="true"
+                android:focusable="true"
+                />
+
+            <TextView
+                android:id="@+id/button_zero"
+                android:layout_width="76dp"
+                android:layout_height="76dp"
+                android:background="@drawable/round_button"
+                android:gravity="center"
+                android:text="0"
+                android:textSize="22sp"
+                android:textColor="@color/brawn"
+                android:fontFamily="@font/doppio_one_regular"
+                app:layout_constraintEnd_toStartOf="@id/button_dot"
+                app:layout_constraintStart_toEndOf="@+id/button_plus_minus"
+                app:layout_constraintTop_toTopOf="parent"
+                android:clickable="true"
+                android:focusable="true"
+                />
+
+            <TextView
+                android:id="@+id/button_dot"
+                android:layout_width="76dp"
+                android:layout_height="76dp"
+                android:background="@drawable/round_button"
+                android:gravity="center"
+                android:text="."
+                android:textSize="22sp"
+                android:textColor="@color/brawn"
+                android:fontFamily="@font/doppio_one_regular"
+                app:layout_constraintEnd_toStartOf="@id/button_equal"
+                app:layout_constraintStart_toEndOf="@+id/button_zero"
+                app:layout_constraintTop_toTopOf="parent"
+                android:clickable="true"
+                android:focusable="true"
+                />
+
+            <TextView
+                android:id="@+id/button_equal"
+                android:layout_width="76dp"
+                android:layout_height="76dp"
+                android:background="@drawable/operation_button"
+                android:gravity="center"
+                android:text="="
+                android:textSize="22sp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/doppio_one_regular"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/button_dot"
+                app:layout_constraintTop_toTopOf="parent"
+                android:clickable="true"
+                android:focusable="true"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
