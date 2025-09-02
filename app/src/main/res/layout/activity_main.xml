@@ -60,7 +60,6 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintBottom_toTopOf="@+id/view"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:gravity="start"
                 android:layout_marginBottom="24dp"
                 android:layout_marginEnd="24dp"
                 android:layout_marginStart="24dp"
@@ -74,9 +73,15 @@
                     android:text="@{viewModel.uiState.result}"
                     android:textColor="@color/brawn"
                     android:textSize="36sp"
-                    android:layout_gravity="start"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
+                    android:ellipsize="none"
+                    android:scrollHorizontally="false"
+                    android:singleLine="true"
+                    android:gravity="end"
+                    android:textAlignment="viewEnd"
+                    android:layoutDirection="ltr"
+                    android:textDirection="ltr"
                     />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
