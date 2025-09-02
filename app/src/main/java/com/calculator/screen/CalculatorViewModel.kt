@@ -1,6 +1,5 @@
 package com.calculator.screen
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -57,9 +56,15 @@ class CalculatorViewModel: ViewModel() , InteractionListener {
     override fun onDeleteLastDigit() {
         val oldResult = _uiState.value?.result ?: ""
         if (oldResult.isNotEmpty()) {
-            _uiState.value = _uiState.value?.copy(
-                result = oldResult.dropLast(1)
-            )
+            if (oldResult.length > 1 && oldResult[oldResult.lastIndex-1].toString() == " "){
+                _uiState.value = _uiState.value?.copy(
+                    result = oldResult.dropLast(2)
+                )
+            }else{
+                _uiState.value = _uiState.value?.copy(
+                    result = oldResult.dropLast(1)
+                )
+            }
         }
     }
 
@@ -68,7 +73,6 @@ class CalculatorViewModel: ViewModel() , InteractionListener {
         val space = " "
         if (oldResult.isNotEmpty() && oldResult != "0"){
             val lastChar = if (oldResult.last().toString() == " "){oldResult[oldResult.lastIndex-1].toString()} else oldResult.last()
-            Log.d("lastChar", "lastChar = $lastChar ")
             if (lastChar in operators){
                 if (lastChar != text){
                     _uiState.value = _uiState.value?.copy(
@@ -85,23 +89,40 @@ class CalculatorViewModel: ViewModel() , InteractionListener {
 
     override fun onClickPlusMinus() {
         val oldResult = _uiState.value?.result ?: ""
-        if (oldResult.isEmpty()){
-            _uiState.value = _uiState.value?.copy(
-                result = "-",
-            )
-        }
-        else if (oldResult.last().toString() != "-"){
-            _uiState.value = _uiState.value?.copy(
-                result = "$oldResult-",
-            )
-        }else
-        {
-            _uiState.value = _uiState.value?.copy(
-                result = oldResult.dropLast(1),
-            )
+        if (oldResult.isNotEmpty()){
+            for (i in oldResult.length-1 downTo 0){
+                if (oldResult[i].toString() == "-"){
+                    if (i > 0 && oldResult[i-1].toString() == " "){
+                        val updatedResult = oldResult.substring(0 , i - 1) + " +" + oldResult.substring(i + 1)
+                        _uiState.value = _uiState.value?.copy(
+                            result = updatedResult
+                        )
+                        break
+                    }
+                }
+                if (oldResult[i].toString() == "-"){
+                    val updatedResult = oldResult.removeRange(i, i + 1)
+                    _uiState.value = _uiState.value?.copy(
+                        result = updatedResult
+                    )
+                    break
+                }else if (oldResult[i].toString() in listOf("x", "÷" , "%" , "+")){
+                    val updatedResult = oldResult.substring(0, i + 1) + "-" + oldResult.substring(i + 1)
+                    _uiState.value = _uiState.value?.copy(
+                        result = updatedResult
+                    )
+                    break
+                } else if (i == 0){
+                    val updatedResult = "-$oldResult"
+                    _uiState.value = _uiState.value?.copy(
+                        result = updatedResult
+                    )
+                    break
+                }
+            }
+
         }
     }
-
 
     fun evaluateExpression(expression: String): String{
         return expression
