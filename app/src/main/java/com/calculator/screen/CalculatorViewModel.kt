@@ -37,7 +37,7 @@ class CalculatorViewModel: ViewModel() , InteractionListener {
                 _uiState.value = _uiState.value?.copy(
                     isError = true
                 )
-                "${e.message}"
+                "Error\n${e.message}"
             }
         _uiState.value = _uiState.value?.copy(
             expression = oldResult,
